@@ -172,12 +172,13 @@ SIMPLE_JWT = {
 }
 
 # CORS settings
-CORS_ALLOWED_ORIGINS = os.environ.get(
-    'CORS_ALLOWED_ORIGINS', 
-    'http://localhost:3000,http://127.0.0.1:3000'
-).split(',')
+CORS_ALLOWED_ORIGINS = [
+    "https://nexalinkfrontend.vercel.app",  # Your live frontend URL
+    "http://localhost:3000",                # Optional for local testing
+]
 
 CORS_ALLOW_CREDENTIALS = True
+
 
 # AWS S3 / Digital Ocean Spaces settings (optional)
 if os.environ.get('USE_S3', 'False') == 'True':
