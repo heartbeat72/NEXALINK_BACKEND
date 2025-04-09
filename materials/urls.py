@@ -7,5 +7,5 @@ router.register(r'', MaterialViewSet)
 router.register(r'versions', MaterialVersionViewSet)
 
 urlpatterns = [
-    path('', include(router.urls)),
+    path('api/content/', include(router.urls)),
 ]
