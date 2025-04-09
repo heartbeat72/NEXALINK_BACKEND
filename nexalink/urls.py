@@ -5,6 +5,11 @@ from django.conf.urls.static import static
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
+from django.http import JsonResponse  # <-- Add this
+
+# Root welcome view
+def index(request):
+    return JsonResponse({"message": "Welcome to NexaLink Academic Management System API"})  # <-- Root response
 
 # Schema view for API documentation
 schema_view = get_schema_view(
@@ -21,6 +26,9 @@ schema_view = get_schema_view(
 )
 
 urlpatterns = [
+    # Root
+    path('', index),  # <-- Add this line to avoid 404 at root
+    
     # Admin
     path('admin/', admin.site.urls),
     
