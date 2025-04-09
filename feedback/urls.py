@@ -6,7 +6,7 @@ from .views import (
 )
 
 router = DefaultRouter()
-router.register(r'', FeedbackViewSet)
+router.register(r'feedbacks', FeedbackViewSet)  # renamed from ''
 router.register(r'replies', FeedbackReplyViewSet)
 router.register(r'questions', FeedbackQuestionViewSet)
 router.register(r'responses', QuestionResponseViewSet)
