@@ -2,11 +2,13 @@ from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from .views import IAComponentViewSet, IAMarkViewSet, IATotalViewSet
 
+# Create a router and register our viewsets with it.
 router = DefaultRouter()
-router.register(r'components', IAComponentViewSet)
-router.register(r'marks', IAMarkViewSet)
-router.register(r'totals', IATotalViewSet)
+router.register(r'components', IAComponentViewSet, basename='iacomment')
+router.register(r'marks', IAMarkViewSet, basename='iamark')
+router.register(r'totals', IATotalViewSet, basename='iatotal')
 
+# The API URLs are now determined automatically by the router.
 urlpatterns = [
     path('', include(router.urls)),
 ]
