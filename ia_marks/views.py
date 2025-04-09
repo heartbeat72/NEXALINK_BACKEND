@@ -111,7 +111,7 @@ class IAMarkViewSet(viewsets.ModelViewSet):
                     
                     # Validate marks
                     marks = float(record['marks'])
-                    if marks &lt; 0 or marks > float(component.max_marks):
+                    if marks < 0 or marks > float(component.max_marks):
                         errors.append({
                             "student_id": record['student_id'],
                             "error": f"Marks must be between 0 and {component.max_marks}."
